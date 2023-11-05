@@ -41,13 +41,6 @@ function number(event, number, trueFalse){
     console.log(number, 'pressed.', num1, 'total')
 }
 
-function pressReset(){
-    num1=''
-    num2=''
-    operation=''
-    firstHalf=true
-}
-
 function runCalculation(event){
     event.preventDefault();
     // num1 = document.getElementById('userScreen').value 
@@ -84,7 +77,7 @@ function renderContent(){
           if (object.length > 0){
             for(let i=0; i<object.length;i++) {
                 document.getElementById('answer').innerHTML = object[i].answer
-                let format = `<li onclick="pressReset(), number(event, '${object[i].num1}', false), operator(event, '${object[i].operation}', false), number(event, '${object[i].num2}', false), setTimeout(runCalculation(event), 1000)">${object[i].num1} ${object[i].operation} ${object[i].num2}</li>`
+                let format = `<li onclick="clearEntries(event), number(event, '${object[i].num1}', false), operator(event, '${object[i].operation}', false), number(event, '${object[i].num2}', false), setTimeout(runCalculation(event), 1000), clearEntries(event)">${object[i].num1} ${object[i].operation} ${object[i].num2}</li>`
                 document.getElementById('content').innerHTML += format
             }
         }
