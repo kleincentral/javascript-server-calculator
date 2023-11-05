@@ -8,22 +8,42 @@
     <script defer src="client.js"></script>
     <title>Document</title>
 </head>
-<body id="content">
+<body>
     <h1>Calculator!</h1>
-    <form>
-        <input
-        id="number1"
-        type="number">
-        <button onclick="operator(event, '+')">+</button>
-        <button onclick="operator(event, '-')">-</button>
-        <button onclick="operator(event, '*')">*</button>
-        <button onclick="operator(event, '/')">/</button>
-        <input
-        id="number2"
-        type="number">
-        <button onclick="runCalculation(event)">=</button>
-        <button onclick="clearEntries(event)">C</button>
+    <form class="box">
+        <p>
+            <input
+            id="userScreen"
+            type="text">
+            <button onclick="clearEntries(event)">C</button>
+        </p>
+        <p>
+            <button onclick="number(event, '7', true)">7</button>
+            <button onclick="number(event, '8', true)">8</button>
+            <button onclick="number(event, '9', true)">9</button>
+            <button onclick="operator(event, '+', true)">+</button>
+        </p>
+        <p>
+            <button onclick="number(event, '4', true)">4</button>
+            <button onclick="number(event, '5', true)">5</button>
+            <button onclick="number(event, '6', true)">6</button>
+            <button onclick="operator(event, '-', true)">-</button>
+        </p>
+        <p>
+            <button onclick="number(event, '1', true)">1</button>
+            <button onclick="number(event, '2', true)">2</button>
+            <button onclick="number(event, '3', true)">3</button>
+            <button onclick="operator(event, '*', true)">*</button>
+        </p>
+        <p>
+            <button onclick="number(event, '0', true)">0</button>
+            <button onclick="number(event, '.')">.</button>
+            <button onclick="runCalculation(event)">=</button>
+            <button onclick="operator(event, '/', true)">/</button>
+        </p>
     </form>
     <h2 id="answer"></h2>
+    <p id="content"></p>
+    <button onclick="callDeletion()">Delete History</button>
 </body>
 </html>

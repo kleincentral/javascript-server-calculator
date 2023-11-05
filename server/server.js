@@ -14,7 +14,6 @@ function calculation(array){
     let num1 = Number(array.number1)
     let num2 = Number(array.number2)
     let operation = array.operation
-    let text = `${num1}${operation}${num2}`
     let answer =''
     if (operation === `+`){
         answer = num1+num2
@@ -29,7 +28,9 @@ function calculation(array){
         answer = num1/num2
     }
     answerArray.push({
-        text: text,
+        num1: num1,
+        num2: num2,
+        operation: operation,
         answer: answer
     })
     console.log(answerArray)
@@ -39,6 +40,13 @@ function calculation(array){
 app.get('/math', (req,res) => {
     console.log('Request for info made.')
     res.send(answerArray)
+})
+
+
+app.delete('/math', (req,res) => {
+    console.log('Request for info made.')
+    answerArray=[]
+    res.send("Deletion made!")
 })
 
 
